@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>登陆页面</title>
+		<link rel="stylesheet" type="text/css" href="css/login.css" />
+
+		<script src="/www/js/jquery.js"></script>
+		<script src="/www/js/login.js"></script>
+	</head>
+
+	<body>
+		<div class="title">
+			电子商城
+		</div>
+		<div class="login-panle">
+			<div class="top">
+				<ul>
+					<li>
+						<a href="javascript:;">注册</a>
+					</li>
+					<li class="active">
+						<a href="javascript:;">账号登陆</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mid">
+				<ul>
+					<li>
+						<div class="register">
+							<form action="#" method="post">
+								<p>
+									<input class="userName" type="text" id="registUserName" placeholder="账号" />
+									<input class="email" type="email" placeholder="邮箱" />
+									<input class="password" type="password" id="registPassword" placeholder="密码" />
+									<input class="password" type="password" placeholder="再次输入密码" />
+								</p>
+								<p>
+									<input type="button" name="submit" class="btn-login" id="btn-regist" value="注册" />
+								</p>
+								<p>
+									<a href="javascript:;">注册遇到问题？</a>
+								</p>
+							</form>
+						</div>
+					</li>
+					<li class="active">
+						<div class="login">
+							<form action="#" method="get">
+								<p>
+									<input name="username" class="userName" id="userName" type="text" placeholder="账号" />
+									<input name="password" class="password" id="password" type="password" placeholder="密码" />
+								</p>
+								<p>
+									<input type="button" name="submit" class="btn-login" id="btn-login" value="登陆" />
+								</p>
+								<p>
+									<a href="javascript:;">登陆遇到问题？</a>
+								</p>
+							</form>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</body>
+
+</html>

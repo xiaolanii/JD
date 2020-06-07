@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/www/css/base.css">
+    <link rel="stylesheet" href="/www/css/good.css">
+
+    <script src="/www/js/common.js"></script>
+    <script src="/www/js/jquery.js"></script>
+    <script src="/www/js/template-web.js"></script>
+    <script src="/www/js/good.js"></script>
+
+    <script type="text/template" id="goodInfo">
+        {{each list}}
+        <p>{{$value.goodname}}</p>
+        <div class="price">
+            <p>￥{{$value.goodprice}}元</p>
+        </div>
+        {{/each}}
+    </script>
+
+</head>
+<body>
+
+<div class="w allBody">
+
+    <div class="box" id="box">
+        <div class="small">
+            <img src="/www/images/girl.png" width="350" alt=""/>
+            <div class="mask"></div>
+        </div>
+        <div class="big">
+            <img src="/www/images/girl.png" width="800" alt=""/>
+        </div>
+    </div>
+
+    <div class="textBody" id="textBody">
+
+    </div>
+    <iframe src="http://localhost/ajax/select/select.html" class="liandong"></iframe>
+
+
+</div>
+
+<input type="button" name="submit" class="btn-login" id="addOrder" value="添加至购物车" />
+
+
+
+
+</body>
+</html>
