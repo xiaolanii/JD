@@ -31,6 +31,6 @@ $(function () {
 
     $("#toIndex").click(function () {
         let username = window.location.search.replace('?','');
-        $(window).attr('location','http://localhost:3000/www/index.html?username='+username);
+        $(window).attr('location','http://localhost:3000/www/index.html?'+username);
     })
 });
