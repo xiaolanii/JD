@@ -4,12 +4,16 @@ const service = require('./service.js');
 
 //提供所有的商品信息
 router.get('/goods',service.allGoods);
+//添加商品
+router.post('/goods/good',service.addGoods);
 //登录
 router.get('/login',service.allLogin);
 //去登陆页面
 router.get('/login/:username',service.login);
 //去商品页面
 router.get('/goods/good:id',service.toGood);
+//提交编辑的数据
+router.put('/goods/good',service.editGood);
 //注册
 router.post('/login/user',service.addUser);
 //获取url中的username
@@ -24,6 +28,8 @@ router.post('/orders/addorder',service.addOrder);
 router.get('/orders/order',service.getOrders);
 //删除购物车
 router.delete('/orders/order/:id',service.deleteOrder);
+//删除数据
+router.delete('/goods/good/:id',service.deleteGood);
 
 
 

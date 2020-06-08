@@ -35,7 +35,6 @@ exports.toGood = (req,res) => {
     let id = req.params.id;
     let sql = 'select * from good where goodid =?';
     let data = [id];
-
     db.base(sql,data,(result) => {
         if (result!==null){
             res.json(result[0]);
@@ -138,6 +137,64 @@ function rePaixu() {
         let sql = 'ALTER TABLE `orders` ADD `ordersid` int(11) NOT NULL FIRST;';
         db.base(sql,null,(result) => {
             let sql = 'ALTER TABLE `orders` MODIFY COLUMN `ordersid` int(11) NOT NULL AUTO_INCREMENT,ADD PRIMARY KEY (ordersid);';
+            db.base(sql,null,(result) => {
+                console.log('修改成功');
+            });
+        });
+    });
+}
+
+exports.addGoods = (req,res) => {
+    let info = req.body;
+    let data = [info.name,info.price];
+    let sql = 'insert into good set goodname=?,goodprice=?';
+    db.base(sql,data,(result) => {
+        if (result.affectedRows === 1){
+            //正确返回1
+            res.json({flag : 1});
+        }else {
+            //错误返回2
+            res.json({flag : 2});
+        }
+    })
+};
+exports.editGood = (req,res) => {
+    let info = req.body;
+    let sql = 'update good set goodname=?,goodprice=? where goodid=?';
+    let data = [info.name,info.price,info.id];
+    db.base(sql,data,(result) => {
+        if (result.affectedRows === 1){
+            //正确返回1
+            res.json({flag : 1});
+        }else {
+            //错误返回2
+            res.json({flag : 2});
+        }
+    })
+};
+exports.deleteGood = (req,res) => {
+    let id = req.params.id;
+    let sql = 'delete from good where goodid=?';
+    let data = [id];
+    db.base(sql,data,(result) => {
+        if (result.affectedRows === 1){
+            //正确返回1
+            rePaixuDelete();
+            res.json({flag : 1});
+        }else {
+            //错误返回2
+            res.json({flag : 2});
+        }
+    })
+};
+function rePaixuDelete() {
+    let sql = 'ALTER TABLE `good` DROP `goodid`;';
+    db.base(sql,null,(result) => {
+
+        // ALTER TABLE `news` ADD `NewsID` int NOT NULL FIRST;
+        let sql = 'ALTER TABLE `good` ADD `goodid` int(11) NOT NULL FIRST;';
+        db.base(sql,null,(result) => {
+            let sql = 'ALTER TABLE `good` MODIFY COLUMN `goodid` int(11) NOT NULL AUTO_INCREMENT,ADD PRIMARY KEY (goodid);';
             db.base(sql,null,(result) => {
                 console.log('修改成功');
             });

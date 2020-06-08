@@ -29,8 +29,12 @@ $(function () {
             dataType: 'json',
             success: function (data) {
                 if (password===data. userpassword){
-                    console.log('登录成功');
-                    $(window).attr('location','http://localhost:3000/www/index.html?username='+data.username);
+                    if (userName==='admin'){
+                        $(window).attr('location','http://localhost:3000/www/admin.html');
+                    }else {
+                        $(window).attr('location','http://localhost:3000/www/index.html?username='+data.username);
+                    }
+
                 }
             }
         })
