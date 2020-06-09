@@ -41,7 +41,7 @@ $(function () {
     //     <a href="javascript:;" class="f10">免费注册</a>
     //     console.log(window.location.search);
         if (window.location.search.indexOf('?')===-1){
-            let html = "<a id=\"toLogin\" href=\http://localhost:3000/www/login.html\">你好，请登录</a>\n" +
+            let html = "<a id=\"toLogin\" href=\"http://localhost:3000/www/login.html\">你好，请登录</a>\n" +
                 "        <a href=\"http://localhost:3000/www/login.html\" class=\"f10\">免费注册</a>";
             $('#addUsername').html(html);
         }else {
